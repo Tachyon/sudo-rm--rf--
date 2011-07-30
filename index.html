@@ -1,0 +1,89 @@
+<?php ob_start('ob_gzhandler') ?>
+<!DOCTYPE html >
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--
+        /**
+        * o------------------------------------------------------------------------------o
+        * | This file is part of the RGraph package - you can learn more at:             |
+        * |                                                                              |
+        * |                          http://www.rgraph.net                               |
+        * |                                                                              |
+        * | This package is licensed under the RGraph license. For all kinds of business |
+        * | purposes there is a small one-time licensing fee to pay and for non          |
+        * | commercial  purposes it is free to use. You can read the full license here:  |
+        * |                                                                              |
+        * |                      http://www.rgraph.net/LICENSE.txt                       |
+        * o------------------------------------------------------------------------------o
+        */
+    -->
+
+    <title>RGraph: Javascript charts and graph library - Radial scatter charts</title>
+    
+    <meta name="keywords" content="rgraph html5 canvas example radial scatter chart" />
+    <meta name="description" content="RGraph: Javascript charts and graph library - Radial scatter chart example" />
+    
+    <meta property="og:title" content="RGraph: Javascript charts and graph library" />
+    <meta property="og:description" content="A charts library based on the HTML5 canvas tag" />
+    <meta property="og:image" content="http://www.rgraph.net/images/logo.png"/>
+
+    <link rel="stylesheet" href="css/website.css" type="text/css" media="screen" />
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <script src="libraries/RGraph.common.core.js" ></script>
+    <script src="libraries/RGraph.rscatter.js" ></script>
+    <!--[if IE 8]><script src="../excanvas/excanvas.original.js"></script><![endif]-->
+
+    <script>
+        window.onload = function ()
+        {
+            // Create the data
+             rscatter1 = new RGraph.Rscatter('cvs2', [
+                                                     [30, 120, 'red'],
+                                                      [350, 100, 'blue'],
+                                                     [456, 97, 'black'],
+                                                    [125, 67, 'red'],
+                                                     [245, 84, 'green'],
+                                                    ]);
+            rscatter1.Set('chart.labels.axes', 'n');
+            rscatter1.Set('chart.labels.position', 'edge');
+            rscatter1.Set('chart.labels', ['NE', 'E', 'SE', 'S', 'SW', 'W', 'NW', '']);
+            rscatter1.Set('chart.tickmarks', 'plus');
+            rscatter1.Set('chart.tooltips.effect', 'contract');
+            rscatter1.Set('chart.title', 'Direction and magnitude');
+            rscatter1.Set('chart.title.color', 'black');
+            rscatter1.Set('chart.title.vpos', 0.3);
+			rscatter1.Set('chart.zoom.factor', 2);
+            rscatter1.Draw();
+            
+
+        }
+    </script>
+</head>
+<body>
+
+        <script>
+            // Opera fix
+            if (navigator.userAgent.indexOf('Opera') == -1) {
+              document.getElementById("social_icons").style.position = 'fixed';
+            }
+        </script>
+    <!-- Social networking buttons -->
+
+
+
+    <script>
+        if (RGraph.isIE8()) {
+            document.write('<div style="background-color: #fee; border: 2px dashed red; padding: 5px"><b>Important</b><br /><br /> Internet Explorer 8 does not natively support the HTML5 canvas tag, so if you want to see the charts, you can either:<ul><li>Install <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a></li><li>Use ExCanvas. This is provided in the RGraph Archive.</li><li>Use another browser entirely. Your choices are Firefox 3.5+, Chrome 2+, Safari 4+ or Opera 10.5+. </li></ul> <b>Note:</b> Internet Explorer 9 fully supports the canvas tag. Click <a href="http://support.rgraph.net/message/rgraph-in-internet-explorer-9.html" target="_blank">here</a> to see some screenshots.</div>');
+        }
+    </script>
+  
+
+    <div style="text-align: center">
+        <canvas id="cvs" width="350" height="350">[No canvas support]</canvas>
+        <canvas id="cvs2" width="350" height="350">[No canvas support]</canvas>
+    </div>
+    
+</body>
+</html>
